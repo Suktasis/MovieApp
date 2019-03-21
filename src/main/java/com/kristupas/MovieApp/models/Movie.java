@@ -11,7 +11,8 @@ public class Movie {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long Id;
 
-    private int lengthMin;
+    private String name;
+    private int length;
     private String url;
     private float rating;
 
@@ -81,12 +82,12 @@ public class Movie {
     }
 
 
-    public int getLengthMin() {
-        return lengthMin;
+    public int getLength() {
+        return length;
     }
 
-    public void setLengthMin(int lengthMin) {
-        this.lengthMin = lengthMin;
+    public void setLength(int length) {
+        this.length = length;
     }
 
     public String getUrl() {
@@ -151,5 +152,13 @@ public class Movie {
 
     public void setProducers(Set<Producer> producers) {
         this.producers = producers;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }

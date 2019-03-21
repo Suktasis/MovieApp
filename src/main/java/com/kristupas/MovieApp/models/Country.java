@@ -16,14 +16,14 @@ public class Country {
     private Set<Movie> movies;
 
 
-    private String countryName;
+    private String name;
 
-    public String getCountryName() {
-        return countryName;
+    public String getName() {
+        return name;
     }
 
-    public void setCountryName(String countryName) {
-        this.countryName = countryName;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public Long getId() {

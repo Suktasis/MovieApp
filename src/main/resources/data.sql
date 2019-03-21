@@ -1,0 +1,14 @@
+--insert into movie (name) values ('Jacobs Ladder');
+--insert into movie (name) values ('Green Mile');
+--insert into movie (name) values ('Inception');
+--insert into actor (name) values ('Leonardo Dicaprio');
+--insert into actor (name) values ('Tim Robbins');
+--insert into actor (name) values ('Tom Hanks');
+--insert into director (name) values ('Frank Darabont');
+--insert into director (name) values ('Bruce Rubin');
+--insert into director (name) values ('Christopher Nolan');
+--insert into producer (name) values ('Emma Thomas');
+--insert into producer (name) values ('David Waldes');
+--insert into producer (name) values ('Alan Marshall');
+insert into country (name) values ('USA');
+insert into country (name) values ('Russia');

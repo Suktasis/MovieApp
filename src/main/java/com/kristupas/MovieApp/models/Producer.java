@@ -4,10 +4,11 @@ import javax.persistence.*;
 import java.util.Set;
 
 @Entity
-public class Actor extends Human {
+public class Producer extends Human {
 
 
-    @ManyToMany(mappedBy = "actors")
+
+    @ManyToMany(mappedBy = "producers")
     private Set<Movie> movies;
 
 
@@ -18,6 +19,4 @@ public class Actor extends Human {
     public void setMovies(Set<Movie> movies) {
         this.movies = movies;
     }
-
-
 }

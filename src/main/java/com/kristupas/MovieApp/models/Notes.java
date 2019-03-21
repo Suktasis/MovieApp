@@ -3,7 +3,7 @@ package com.kristupas.MovieApp.models;
 import javax.persistence.*;
 
 @Entity
-public class Synopsis {
+public class Notes {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -12,8 +12,20 @@ public class Synopsis {
     @Lob
     private String synopsis;
 
+
+
+    private String slogan;
+
     @OneToOne
     private Movie movie;
+
+    public String getSlogan() {
+        return slogan;
+    }
+
+    public void setSlogan(String slogan) {
+        this.slogan = slogan;
+    }
 
 
     public Long getId() {

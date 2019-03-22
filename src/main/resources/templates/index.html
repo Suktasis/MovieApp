@@ -6,5 +6,16 @@
 </head>
 <body>
 <h1>Recipes exist</h1>
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Description</th>
+    </tr>
+    <tr th:each="movie : ${movies}">
+        <td th:text="${movie.id}">123</td>
+        <td th:text="${movie.name}">movie</td>
+    </tr>
+</table>
 </body>
 </html>

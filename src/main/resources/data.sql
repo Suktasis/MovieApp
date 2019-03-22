@@ -11,4 +11,4 @@
 --insert into producer (name) values ('David Waldes');
 --insert into producer (name) values ('Alan Marshall');
 insert into country (name) values ('USA');
-insert into country (name) values ('Russia');
+insert into country (name) values ('UK');

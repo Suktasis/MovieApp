@@ -7,7 +7,7 @@ import java.util.Set;
 public class Actor extends Human {
 
 
-    @ManyToMany(mappedBy = "actors")
+    @ManyToMany(mappedBy = "actors",cascade = CascadeType.ALL)
     private Set<Movie> movies;
 
 

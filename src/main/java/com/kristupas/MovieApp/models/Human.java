@@ -16,7 +16,7 @@ public abstract class Human {
 
 
     @Lob
-    private byte[] preview;
+    private Byte[] preview;
 
     @ManyToOne
     Country country;
@@ -45,11 +45,11 @@ public abstract class Human {
         this.dateOfBirth = dateOfBirth;
     }
 
-    public byte[] getPreview() {
+    public Byte[] getPreview() {
         return preview;
     }
 
-    public void setPreview(byte[] preview) {
+    public void setPreview(Byte[] preview) {
         this.preview = preview;
     }
 

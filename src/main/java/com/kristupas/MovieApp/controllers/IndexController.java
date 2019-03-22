@@ -1,24 +1,23 @@
 package com.kristupas.MovieApp.controllers;
 
-import com.kristupas.MovieApp.models.Country;
-import com.kristupas.MovieApp.repositories.CountryRepository;
+import com.kristupas.MovieApp.services.MovieService;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-
-import java.util.Optional;
 
 @Controller
 public class IndexController {
-    private CountryRepository country;
+    private MovieService movieService;
 
-    public IndexController(CountryRepository country) {
-        this.country = country;
+    public IndexController(MovieService movieService) {
+        this.movieService = movieService;
     }
 
     @RequestMapping("/")
-    public String indexPage(){
-        Optional<Country> countryOptional = country.findByName("USA");
-        System.out.println("country USA id is " + countryOptional.get().getId());
+    public String indexPage(Model model){
+
+        model.addAttribute("movies",movieService.getMovies());
+
         return "index";
     }
 

@@ -1,7 +1,6 @@
 package com.kristupas.MovieApp.models;
 
 import javax.persistence.*;
-import java.util.Date;
 import java.util.Set;
 
 @Entity
@@ -14,9 +13,10 @@ public class Movie {
     private String name;
     private int length;
     private String url;
-    private float rating;
+    private double rating;
 
-    private Date release;
+    private String release;
+
 
 
 
@@ -98,11 +98,11 @@ public class Movie {
         this.url = url;
     }
 
-    public float getRating() {
+    public double getRating() {
         return rating;
     }
 
-    public void setRating(float rating) {
+    public void setRating(double rating) {
         this.rating = rating;
     }
 
@@ -138,11 +138,11 @@ public class Movie {
         this.directors = directors;
     }
 
-    public Date getRelease() {
+    public String getRelease() {
         return release;
     }
 
-    public void setRelease(Date release) {
+    public void setRelease(String release) {
         this.release = release;
     }
 

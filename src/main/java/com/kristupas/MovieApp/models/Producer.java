@@ -1,9 +1,13 @@
 package com.kristupas.MovieApp.models;
 
-import javax.persistence.*;
+import lombok.Data;
+
+import javax.persistence.Entity;
+import javax.persistence.ManyToMany;
 import java.util.Set;
 
 @Entity
+@Data
 public class Producer extends Human {
 
 
@@ -11,12 +15,4 @@ public class Producer extends Human {
     @ManyToMany(mappedBy = "producers")
     private Set<Movie> movies;
 
-
-    public Set<Movie> getMovies() {
-        return movies;
-    }
-
-    public void setMovies(Set<Movie> movies) {
-        this.movies = movies;
-    }
 }

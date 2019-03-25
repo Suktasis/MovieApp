@@ -1,18 +1,25 @@
 package com.kristupas.MovieApp.models;
 
+import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
 
 
 @MappedSuperclass
 public abstract class Human {
 
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    private String name;
-    private String dateOfBirth;
 
+    private String name;
+
+
+    private String dateOfBirth;
 
 
     @Lob
@@ -53,4 +60,11 @@ public abstract class Human {
         this.preview = preview;
     }
 
+    public Country getCountry() {
+        return country;
+    }
+
+    public void setCountry(Country country) {
+        this.country = country;
+    }
 }

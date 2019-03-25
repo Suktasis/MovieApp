@@ -1,9 +1,12 @@
 package com.kristupas.MovieApp.models;
 
+import lombok.Data;
+
 import javax.persistence.*;
 import java.util.Set;
 
 @Entity
+@Data
 public class Movie {
 
     @Id
@@ -57,108 +60,10 @@ public class Movie {
 
 
 
-    public Age getAge() {
-        return age;
-    }
-
-    public void setAge(Age age) {
-        this.age = age;
-    }
-
-    public Set<Actor> getActors() {
-        return actors;
-    }
-
-    public void setActors(Set<Actor> actors) {
-        this.actors = actors;
-    }
-
-    public Long getId() {
-        return Id;
-    }
-
-    public void setId(Long id) {
-        Id = id;
-    }
-
-
-    public int getLength() {
-        return length;
-    }
-
-    public void setLength(int length) {
-        this.length = length;
-    }
-
-    public String getUrl() {
-        return url;
-    }
-
-    public void setUrl(String url) {
-        this.url = url;
-    }
-
-    public double getRating() {
-        return rating;
-    }
-
-    public void setRating(double rating) {
-        this.rating = rating;
-    }
-
-    public Notes getNotes() {
-        return notes;
-    }
-
     public void setNotes(Notes notes) {
         this.notes = notes;
+        notes.setMovie(this);
     }
 
-    public Byte[] getPreview() {
-        return preview;
-    }
 
-    public void setPreview(Byte[] preview) {
-        this.preview = preview;
-    }
-
-    public Set<Country> getCountries() {
-        return countries;
-    }
-
-    public void setCountries(Set<Country> countries) {
-        this.countries = countries;
-    }
-
-    public Set<Director> getDirectors() {
-        return directors;
-    }
-
-    public void setDirectors(Set<Director> directors) {
-        this.directors = directors;
-    }
-
-    public String getRelease() {
-        return release;
-    }
-
-    public void setRelease(String release) {
-        this.release = release;
-    }
-
-    public Set<Producer> getProducers() {
-        return producers;
-    }
-
-    public void setProducers(Set<Producer> producers) {
-        this.producers = producers;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
 }

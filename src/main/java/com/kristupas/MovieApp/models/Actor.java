@@ -1,23 +1,18 @@
 package com.kristupas.MovieApp.models;
 
-import javax.persistence.*;
+import lombok.Data;
+
+import javax.persistence.Entity;
+import javax.persistence.ManyToMany;
 import java.util.Set;
 
+@Data
 @Entity
 public class Actor extends Human {
 
 
-    @ManyToMany(mappedBy = "actors",cascade = CascadeType.ALL)
+
+    @ManyToMany(mappedBy = "actors")
     private Set<Movie> movies;
-
-
-    public Set<Movie> getMovies() {
-        return movies;
-    }
-
-    public void setMovies(Set<Movie> movies) {
-        this.movies = movies;
-    }
-
 
 }

@@ -8,4 +8,5 @@ import java.util.Optional;
 public interface MovieRepository extends CrudRepository<Movie, Long> {
 
     Optional<Movie> findByName(String name);
+
 }

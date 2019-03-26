@@ -1,12 +1,14 @@
 package com.kristupas.MovieApp.models;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import javax.persistence.*;
 import java.util.Set;
 
 @Entity
 @Data
+@EqualsAndHashCode(exclude = "notes")
 public class Movie {
 
     @Id

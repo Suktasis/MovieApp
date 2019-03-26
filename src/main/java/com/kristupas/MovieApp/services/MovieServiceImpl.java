@@ -25,4 +25,5 @@ public class MovieServiceImpl implements MovieService {
         movieRepository.findAll().iterator().forEachRemaining(set::add);
         return set;
     }
+
 }

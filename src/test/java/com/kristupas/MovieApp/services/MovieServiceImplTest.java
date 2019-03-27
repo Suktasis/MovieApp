@@ -9,8 +9,10 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
 import java.util.HashSet;
+import java.util.Optional;
 import java.util.Set;
 
+import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.*;
 
 public class MovieServiceImplTest {
@@ -25,11 +27,26 @@ public class MovieServiceImplTest {
     @Before
     public void setUp() throws Exception {
         MockitoAnnotations.initMocks(this);
-
         movieService = new MovieServiceImpl(movieRepository);
 
         indexController = new IndexController(movieService);
 
+    }
+
+    @Test public void getMovieById(){
+        Movie movie = new Movie();
+        movie.setId(1L);
+
+        Optional<Movie> optionalMovie = Optional.of(movie);
+
+        when(movieRepository.findById(anyLong())).thenReturn(optionalMovie);
+
+        Movie movieGot = movieService.findById(1L);
+
+        assertEquals(movieGot.getId(),(Long)1L);
+
+        verify(movieRepository,times(1)).findById(anyLong());
+        verify(movieRepository,never()).findAll();
     }
 
 

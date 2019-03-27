@@ -6,6 +6,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
+import java.util.Optional;
 import java.util.Set;
 
 @Service
@@ -25,5 +26,15 @@ public class MovieServiceImpl implements MovieService {
         movieRepository.findAll().iterator().forEachRemaining(set::add);
         return set;
     }
+
+    @Override
+    public Movie findById(Long l) {
+        Optional<Movie> optionalMovie = movieRepository.findById(l);
+        if(!optionalMovie.isPresent()){
+            throw new RuntimeException("Movie not found");
+        }
+        return optionalMovie.get();
+    }
+
 
 }

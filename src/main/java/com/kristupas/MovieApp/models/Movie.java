@@ -2,10 +2,8 @@ package com.kristupas.MovieApp.models;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import org.springframework.data.annotation.Persistent;
 
 import javax.persistence.*;
-import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -22,39 +20,41 @@ public class Movie {
     private String url;
     private double rating;
 
-    private int release;
+    private String release;
 
 
+
+
+    @OneToOne(cascade= CascadeType.ALL)
     private Notes notes;
 
     @Enumerated(value = EnumType.STRING)
     private Age age;
 
 
-    @Persistent
-    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @ManyToMany()
     @JoinTable(name = "movie_actor",
             joinColumns = @JoinColumn(name = "movie_id"),
             inverseJoinColumns = @JoinColumn(name = "actor_id"))
-    private Set<Actor> actors = new HashSet<>();
+    private Set<Actor> actors;
 
-    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @ManyToMany()
     @JoinTable(name = "movie_country",
             joinColumns = @JoinColumn(name = "movie_id"),
             inverseJoinColumns = @JoinColumn(name = "country_id"))
-    private Set<Country> countries = new HashSet<>();
+    private Set<Country> countries;
 
-    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @ManyToMany()
     @JoinTable(name = "movie_director",
             joinColumns = @JoinColumn(name = "movie_id"),
             inverseJoinColumns = @JoinColumn(name = "director_id"))
-    private Set<Director> directors = new HashSet<>();
+    private Set<Director> directors;
 
-    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @ManyToMany()
     @JoinTable(name = "movie_producer",
             joinColumns = @JoinColumn(name = "movie_id"),
             inverseJoinColumns = @JoinColumn(name = "producer_id"))
-    private Set<Producer> producers = new HashSet<>();;
+    private Set<Producer> producers;
 
     @Lob
     private Byte[] preview;
@@ -62,14 +62,9 @@ public class Movie {
 
 
 
-    public void addActor(Actor actor){
-        actors.add(actor);
-        actor.addMovie(this);
-    }
-
-    public void addCountry(Country country){
-        countries.add(country);
-        country.addMovie(this);
+    public void setNotes(Notes notes) {
+        this.notes = notes;
+        notes.setMovie(this);
     }
 
 

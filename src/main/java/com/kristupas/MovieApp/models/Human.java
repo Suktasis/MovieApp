@@ -1,10 +1,13 @@
 package com.kristupas.MovieApp.models;
 
-import javax.persistence.*;
-import java.util.Date;
+import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
-@Entity
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+import javax.persistence.*;
+
+
+@MappedSuperclass
 public abstract class Human {
 
 
@@ -16,7 +19,7 @@ public abstract class Human {
     private String name;
 
 
-    private Date dateOfBirth;
+    private String dateOfBirth;
 
 
     @Lob
@@ -41,6 +44,13 @@ public abstract class Human {
         this.name = name;
     }
 
+    public String getDateOfBirth() {
+        return dateOfBirth;
+    }
+
+    public void setDateOfBirth(String dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
+    }
 
     public Byte[] getPreview() {
         return preview;
@@ -56,13 +66,5 @@ public abstract class Human {
 
     public void setCountry(Country country) {
         this.country = country;
-    }
-
-    public Date getDateOfBirth() {
-        return dateOfBirth;
-    }
-
-    public void setDateOfBirth(Date dateOfBirth) {
-        this.dateOfBirth = dateOfBirth;
     }
 }

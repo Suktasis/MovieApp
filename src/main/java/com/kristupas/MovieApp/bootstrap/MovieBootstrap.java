@@ -1,17 +1,12 @@
 package com.kristupas.MovieApp.bootstrap;
 
-import com.kristupas.MovieApp.models.Actor;
-import com.kristupas.MovieApp.models.Age;
-import com.kristupas.MovieApp.models.Movie;
-import com.kristupas.MovieApp.models.Notes;
+import com.kristupas.MovieApp.models.*;
 import com.kristupas.MovieApp.repositories.*;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.stereotype.Component;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 @Component
 public class MovieBootstrap implements ApplicationListener<ContextRefreshedEvent> {
@@ -41,25 +36,27 @@ public class MovieBootstrap implements ApplicationListener<ContextRefreshedEvent
 
     private List<Movie> getMovies(){
 
-//        EntityManagerCreator creator = new EntityManagerCreator();
-//        EntityManagerFactory emFactory = creator.getFactory();
-//        EntityManager em = emFactory.createEntityManager();
-
-//        em.getTransaction().begin();
-
 
 //        Byte[] mas = new Byte[3];
         List<Movie> movies = new ArrayList<>();
-//
-//
-//        Optional<Country> country1Optional = countryRepository.findByName("UK");
-//        Optional<Country> country2Optional = countryRepository.findByName("USA");
-//
-//        if(!country1Optional.isPresent() || !country2Optional.isPresent())
-//            throw new RuntimeException("NO such entity");
-//
-//        Country country1 = country1Optional.get();
-//        Country country2 = country2Optional.get();
+
+
+        Optional<Country> country1Optional = countryRepository.findByName("UK");
+        Optional<Country> country2Optional = countryRepository.findByName("USA");
+
+        if(!country1Optional.isPresent() || !country2Optional.isPresent())
+            throw new RuntimeException("NO such entity");
+
+        Country country1 = country1Optional.get();
+        Country country2 = country2Optional.get();
+
+        Set<Country> countrySet1 = new HashSet<>();
+        countrySet1.add(country1);
+        countrySet1.add(country2);
+
+        Set<Country> countrySet2 = new HashSet<>();
+        countrySet2.add(country2);
+
 
 
         Notes notes1 = new Notes();
@@ -80,55 +77,32 @@ public class MovieBootstrap implements ApplicationListener<ContextRefreshedEvent
         Movie movie1 = new Movie();
         Movie movie2 = new Movie();
 
-
-        Actor actor = new Actor();
-        actor.setName("Bradley Cooper");
-        actor.setDateOfBirth(new Date());
-
-
-        Actor actor2 = new Actor();
-        actor2.setName("Stephan Lawrence");
-        actor2.setDateOfBirth(new Date());
-
-        Actor actor3 = new Actor();
-        actor3.setName("Ashton Kutcher");
-        actor3.setDateOfBirth(new Date());
-
+        Set<Movie> moviesSet1 = new HashSet<>();
+        Set<Movie> moviesSet2 = new HashSet<>();
+        moviesSet1.add(movie1);
+        moviesSet2.add(movie2);
 
 
         movie1.setAge(Age.PG);
         movie1.setLength(148);
-        movie1.setRelease(2010);
+        movie1.setRelease("2010");
         movie1.setName("Inception");
-        movie2.addActor(actor);
-        movie2.addActor(actor2);
         movie1.setNotes(notes1);
         movie1.setRating(8.6);
         movie1.setUrl("https://www.kinopoisk.ru/film/447301/");
-//        movie2.addCountry(country2);
-
+        movie1.setCountries(countrySet1);
 
         movie2.setAge(Age.R);
         movie2.setLength(113);
-        movie2.setRelease(1990);
-        movie2.addActor(actor2);
-        movie2.addActor(actor3);
+        movie2.setRelease("1990");
         movie2.setName("Jacobs Ladder");
         movie2.setNotes(notes2);
         movie2.setRating(7.5);
         movie2.setUrl("https://www.kinopoisk.ru/film/7355/");
-//        movie2.addCountry(country1);
+        movie2.setCountries(countrySet2);
 
         movies.add(movie1);
         movies.add(movie2);
-
-//        em.persist(movie1);
-//        em.persist(movie2);
-//        em.persist(actor);
-//        em.persist(actor2);
-//        em.persist(actor3);
-//        em.getTransaction().commit();
-//        em.close();
 
 
         return movies;

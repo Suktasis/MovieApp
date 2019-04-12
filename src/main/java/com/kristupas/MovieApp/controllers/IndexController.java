@@ -20,6 +20,7 @@ public class IndexController {
     public String indexPage(Model model){
         log.debug("Getting index page");
         model.addAttribute("movies",movieService.getMovies());
+
         return "index";
     }
 

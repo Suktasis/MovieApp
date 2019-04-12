@@ -1,16 +1,15 @@
 package com.kristupas.MovieApp.models;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import javax.persistence.*;
 
-@Entity
+@Embeddable
 @Data
+@EqualsAndHashCode(exclude = "movie")
 public class Notes {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
 
 
     @Lob
@@ -20,7 +19,6 @@ public class Notes {
 
     private String slogan;
 
-    @OneToOne
-    private Movie movie;
+
 
 }

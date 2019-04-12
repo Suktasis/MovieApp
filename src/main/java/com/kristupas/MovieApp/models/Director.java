@@ -1,19 +1,26 @@
 package com.kristupas.MovieApp.models;
 
 import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.EqualsAndHashCode;
 
-import javax.persistence.*;
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.ManyToMany;
+import java.util.HashSet;
 import java.util.Set;
 
 
 @Data
 @Entity
+@EqualsAndHashCode(exclude = "movies")
 public class Director extends Human {
 
 
-    @ManyToMany(mappedBy = "directors")
-    private Set<Movie> movies;
+    @ManyToMany(mappedBy = "directors",cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    private Set<Movie> movies = new HashSet<>();
+
+    public void addMovie(Movie movie){
+        movies.add(movie);
+    }
 
 }

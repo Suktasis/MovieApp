@@ -23,6 +23,7 @@ public class CountryTest {
 
     @Test
     public void setId() {
+        System.out.println(Movie.class);
     }
 
     @Test

@@ -1,22 +1,26 @@
 package com.kristupas.MovieApp.models;
 
+
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.ManyToMany;
+import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
-@Data
 @Entity
+@Data
 @EqualsAndHashCode(exclude = "movies")
-public class Actor extends Human {
+public class Genre {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
 
 
+    private String name;
 
-    @ManyToMany(mappedBy = "actors", cascade = {CascadeType.MERGE, CascadeType.PERSIST})
+    @ManyToMany
     private Set<Movie> movies = new HashSet<>();
 
     public void addMovie(Movie movie){

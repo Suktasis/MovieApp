@@ -50,14 +50,18 @@ public class MovieBootstrap implements ApplicationListener<ContextRefreshedEvent
         Country country1 = country1Optional.get();
         Country country2 = country2Optional.get();
 
-        Set<Country> countrySet1 = new HashSet<>();
-        countrySet1.add(country1);
-        countrySet1.add(country2);
 
-        Set<Country> countrySet2 = new HashSet<>();
-        countrySet2.add(country2);
+        Actor actor1 = new Actor();
+        actor1.setName("Joseph");
+        actor1.setDateOfBirth(new Date());
 
+        Actor actor2 = new Actor();
+        actor2.setName("Alfred");
+        actor2.setDateOfBirth(new Date());
 
+        Actor actor3 = new Actor();
+        actor3.setName("Kelly");
+        actor3.setDateOfBirth(new Date());
 
         Notes notes1 = new Notes();
         notes1.setSlogan("Your mind is crime place");
@@ -77,10 +81,6 @@ public class MovieBootstrap implements ApplicationListener<ContextRefreshedEvent
         Movie movie1 = new Movie();
         Movie movie2 = new Movie();
 
-        Set<Movie> moviesSet1 = new HashSet<>();
-        Set<Movie> moviesSet2 = new HashSet<>();
-        moviesSet1.add(movie1);
-        moviesSet2.add(movie2);
 
 
         movie1.setAge(Age.PG);
@@ -90,7 +90,7 @@ public class MovieBootstrap implements ApplicationListener<ContextRefreshedEvent
         movie1.setNotes(notes1);
         movie1.setRating(8.6);
         movie1.setUrl("https://www.kinopoisk.ru/film/447301/");
-        movie1.setCountries(countrySet1);
+        movie1.addCountry(country1);
 
         movie2.setAge(Age.R);
         movie2.setLength(113);
@@ -99,7 +99,11 @@ public class MovieBootstrap implements ApplicationListener<ContextRefreshedEvent
         movie2.setNotes(notes2);
         movie2.setRating(7.5);
         movie2.setUrl("https://www.kinopoisk.ru/film/7355/");
-        movie2.setCountries(countrySet2);
+        movie2.addCountry(country2);
+
+        movie1.addActor(actor1);
+        movie1.addActor(actor2);
+        movie2.addActor(actor3);
 
         movies.add(movie1);
         movies.add(movie2);

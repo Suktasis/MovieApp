@@ -4,13 +4,10 @@ import lombok.Data;
 
 import javax.persistence.*;
 
-@Entity
+@Embeddable
 @Data
 public class Notes {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
 
 
     @Lob

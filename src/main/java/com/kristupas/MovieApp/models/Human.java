@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.Date;
 
 
 @MappedSuperclass
@@ -19,7 +20,7 @@ public abstract class Human {
     private String name;
 
 
-    private String dateOfBirth;
+    private Date dateOfBirth;
 
 
     @Lob
@@ -44,11 +45,11 @@ public abstract class Human {
         this.name = name;
     }
 
-    public String getDateOfBirth() {
+    public Date getDateOfBirth() {
         return dateOfBirth;
     }
 
-    public void setDateOfBirth(String dateOfBirth) {
+    public void setDateOfBirth(Date dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
 

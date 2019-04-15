@@ -3,8 +3,10 @@ package com.kristupas.MovieApp.models;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-import javax.persistence.*;
-import java.util.Set;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 @Entity
 @Data
@@ -18,9 +20,8 @@ public class Country {
     private Long id;
 
 
+    private Byte [] icon;
 
-    @ManyToMany(mappedBy = "countries")
-    private Set<Movie> movies;
 
     private String name;
 

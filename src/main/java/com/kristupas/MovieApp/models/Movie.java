@@ -4,12 +4,14 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 import javax.persistence.*;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
+
 @Entity
 @Data
-@EqualsAndHashCode(exclude = "notes")
+@EqualsAndHashCode(exclude = "description")
 public class Movie {
 
     @Id
@@ -17,16 +19,16 @@ public class Movie {
     private Long Id;
 
     private String name;
-    private int length;
     private String url;
+    private int length;
     private double rating;
 
-    private String release;
+    private Date release;
 
 
 
 
-    private Notes notes;
+    private Description description;
 
     @Enumerated(value = EnumType.STRING)
     private Age age;
@@ -36,7 +38,7 @@ public class Movie {
     @JoinTable(name = "movie_actor",
             joinColumns = @JoinColumn(name = "movie_id"),
             inverseJoinColumns = @JoinColumn(name = "actor_id"))
-    private Set<Actor> actors = new HashSet<>();
+    private Set<Human> humans = new HashSet<>();
 
     @ManyToMany()
     @JoinTable(name = "movie_country",
@@ -44,17 +46,6 @@ public class Movie {
             inverseJoinColumns = @JoinColumn(name = "country_id"))
     private Set<Country> countries = new HashSet<>();
 
-    @ManyToMany()
-    @JoinTable(name = "movie_director",
-            joinColumns = @JoinColumn(name = "movie_id"),
-            inverseJoinColumns = @JoinColumn(name = "director_id"))
-    private Set<Director> directors = new HashSet<>();
-
-    @ManyToMany()
-    @JoinTable(name = "movie_producer",
-            joinColumns = @JoinColumn(name = "movie_id"),
-            inverseJoinColumns = @JoinColumn(name = "producer_id"))
-    private Set<Producer> producers  = new HashSet<>();
 
 //    private Set<String> im = new HashSet<>();
 
@@ -65,19 +56,16 @@ public class Movie {
 
 
 
-    public void setNotes(Notes notes) {
-        this.notes = notes;
-        notes.setMovie(this);
+    public void setDescription(Description description) {
+        this.description = description;
+        description.setMovie(this);
     }
     public void addCountry(Country country){
         countries.add(country);
-//        country.addMovie(this);
     }
 
-    public void addActor(Actor actor){
-        actors.add(actor);
-        actor.addMovie(this);
+    public void addHuman(Human human){
+        humans.add(human);
     }
-
 
 }

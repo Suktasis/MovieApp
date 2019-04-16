@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -20,14 +21,20 @@ public class MovieCommand {
     private int length;
     private String url;
     private double rating;
-    private String release;
-    private Notes notes;
+    private Date release;
+    private Description description;
     private Age age;
-    private Set<Actor> actors = new HashSet<>();
-    private Set<Country> countries = new HashSet<>();
-    private Set<Director> directors = new HashSet<>();
-    private Set<Producer> producers  = new HashSet<>();
+    private Set<CountryCommand> countries = new HashSet<>();
+    private Set<HumanCommand> humans  = new HashSet<>();
 
     @Lob
     private Byte[] preview;
+
+    public void addHuman(HumanCommand human){
+        humans.add(human);
+    }
+
+    public void addCountry(CountryCommand country){
+        countries.add(country);
+    }
 }

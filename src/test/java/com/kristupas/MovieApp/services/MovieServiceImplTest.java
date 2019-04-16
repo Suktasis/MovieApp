@@ -1,6 +1,7 @@
 package com.kristupas.MovieApp.services;
 
 import com.kristupas.MovieApp.controllers.IndexController;
+import com.kristupas.MovieApp.converters.*;
 import com.kristupas.MovieApp.models.Movie;
 import com.kristupas.MovieApp.repositories.MovieRepository;
 import org.junit.Before;
@@ -15,6 +16,7 @@ import java.util.Set;
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.*;
 
+
 public class MovieServiceImplTest {
 
     MovieServiceImpl movieService;
@@ -27,10 +29,15 @@ public class MovieServiceImplTest {
     @Before
     public void setUp() throws Exception {
         MockitoAnnotations.initMocks(this);
-        movieService = new MovieServiceImpl(movieRepository);
 
+        MovieCommandToMovie movieCommandToMovie = new MovieCommandToMovie(new CountryCommandToCountry(),
+                new HumanCommandToHuman());
+        MovieToMovieCommand movieToMovieCommand = new MovieToMovieCommand(new CountryToCountryCommand(),
+                new HumanToHumanCommand());
+
+
+        movieService = new MovieServiceImpl(movieRepository, movieToMovieCommand, movieCommandToMovie);
         indexController = new IndexController(movieService);
-
     }
 
     @Test public void getMovieById(){

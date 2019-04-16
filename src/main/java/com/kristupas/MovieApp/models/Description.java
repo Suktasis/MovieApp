@@ -6,7 +6,7 @@ import javax.persistence.*;
 
 @Embeddable
 @Data
-public class Notes {
+public class Description {
 
 
 

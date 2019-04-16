@@ -11,4 +11,5 @@ import lombok.Setter;
 public class CountryCommand {
     private String name;
     private Byte[] icon;
+    private Long id;
 }

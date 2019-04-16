@@ -6,10 +6,12 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 
-@MappedSuperclass
-public abstract class Human {
+@Entity
+public class Human {
 
 
     @Id
@@ -27,7 +29,9 @@ public abstract class Human {
     private Byte[] preview;
 
     @ManyToOne
-    Country country;
+    private  Country country;
+
+
 
     public Long getId() {
         return id;

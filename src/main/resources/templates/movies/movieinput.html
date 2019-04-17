@@ -20,7 +20,7 @@
 <div class="container-fluid" style="margin-top: 20px">
     <div class="row">
         <div class="col-md-6 col-md-offset-3">
-            <form  th:object="${movie}" th:action="@{/movie/}"  method="post">
+            <form  th:object="${movie}" th:action="@{/movies/}"  method="post">
                 <input type="hidden" th:field="*{id}"/>
                 <div class="pannel-group">
                     <div class="panel panel-primary">
@@ -69,7 +69,7 @@
                                     <ul>
                                         <li th:remove="all">John Doe</li>
                                         <li th:remove="all">Alfred Schnitke</li>
-                                        <li th:each="human : ${movie.humans}"
+                                        <li th:each="human : ${humans}"
                                             th:text="${human.name}">Calvin Isaacs
                                         </li>
                                     </ul>
@@ -84,7 +84,7 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-md-12 form-group">
-                                    <textarea class="form-control" rows="3" th:field="*{human.description.synopsis}"></textarea></div>
+                                    <textarea class="form-control" rows="3" th:field="*{description.synopsis}"></textarea></div>
                             </div>
                         </div>
                     </div>
@@ -95,7 +95,7 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-md-12 form-group">
-                                    <textarea class="form-control" rows="3" th:field="*{human.description.slogan}"></textarea>
+                                    <textarea class="form-control" rows="3" th:field="*{description.slogan}"></textarea>
                                 </div>
                             </div>
                         </div>

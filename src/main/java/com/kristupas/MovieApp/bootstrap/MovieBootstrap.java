@@ -83,7 +83,7 @@ public class MovieBootstrap implements ApplicationListener<ContextRefreshedEvent
         movie1.setName("Inception");
         movie1.setDescription(description1);
         movie1.setRating(8.6);
-        movie1.setUrl("https://www.kinopoisk.ru/film/447301/");
+        movie1.setUrl("http://www.kinopoisk.ru/film/447301/");
         movie1.addCountry(country1);
 
         movie2.setAge(Age.R);
@@ -92,7 +92,7 @@ public class MovieBootstrap implements ApplicationListener<ContextRefreshedEvent
         movie2.setName("Jacobs Ladder");
         movie2.setDescription(description2);
         movie2.setRating(7.5);
-        movie2.setUrl("https://www.kinopoisk.ru/film/7355/");
+        movie2.setUrl("http://www.kinopoisk.ru/film/7355/");
         movie2.addCountry(country2);
 
         movie1.addHuman(actor1);

@@ -13,4 +13,6 @@ public interface MovieService  {
     Movie findById(Long l);
 
     MovieCommand saveMovieCommand(MovieCommand command);
+
+    MovieCommand findCommandById(Long id);
 }

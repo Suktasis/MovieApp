@@ -16,7 +16,7 @@ public class MovieController {
         this.movieService = movieService;
     }
 
-    @GetMapping("show/{id}")
+    @GetMapping("{id}/show")
     public String showById(@PathVariable String id, Model model){
         model.addAttribute("movie",movieService.findById(new Long(id)));
         return "movies/show";
@@ -28,11 +28,18 @@ public class MovieController {
         return "movies/movieinput.html";
     }
 
-    @PostMapping("movie")
+    @PostMapping
+    @RequestMapping("editer")
     public String save(@ModelAttribute MovieCommand movieCommand){
         MovieCommand savedCommand = movieService.saveMovieCommand(movieCommand);
 
-        return "redirect:/movies/show/" + savedCommand.getId();
+        return "redirect:/movies/" + savedCommand.getId() + "/show";
+    }
+
+    @GetMapping("{id}/edit")
+    public String updateMovie(@PathVariable Long id, Model model){
+        model.addAttribute("movie",movieService.findCommandById(id));
+        return "movies/movieinput.html";
     }
 
 }

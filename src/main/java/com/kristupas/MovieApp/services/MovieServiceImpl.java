@@ -54,5 +54,11 @@ public class MovieServiceImpl implements MovieService {
         return movieToMovieCommand.convert(savedMovie);
     }
 
+    @Override
+    @Transactional
+    public MovieCommand findCommandById(Long id) {
+        return movieToMovieCommand.convert(findById(id));
+    }
+
 
 }

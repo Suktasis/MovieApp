@@ -54,8 +54,6 @@ public class Movie {
     private Byte[] preview;
 
 
-
-
     public void setDescription(Description description) {
         this.description = description;
         description.setMovie(this);
@@ -67,5 +65,4 @@ public class Movie {
     public void addHuman(Human human){
         humans.add(human);
     }
-
 }

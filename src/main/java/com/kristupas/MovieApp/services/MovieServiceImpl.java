@@ -60,5 +60,10 @@ public class MovieServiceImpl implements MovieService {
         return movieToMovieCommand.convert(findById(id));
     }
 
+    @Override
+    public void deleteById(Long id) {
+        movieRepository.deleteById(id);
+    }
+
 
 }

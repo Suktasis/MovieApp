@@ -69,8 +69,8 @@
                                     <ul>
                                         <li th:remove="all">John Doe</li>
                                         <li th:remove="all">Alfred Schnitke</li>
-                                        <li th:each="human : ${humans}"
-                                            th:text="${human.name}">Calvin Isaacs
+                                        <li th:each="person : ${people}"
+                                            th:text="${person.name}">Calvin Isaacs
                                         </li>
                                     </ul>
                                 </div>

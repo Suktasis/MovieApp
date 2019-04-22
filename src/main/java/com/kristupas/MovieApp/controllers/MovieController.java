@@ -28,6 +28,8 @@ public class MovieController {
         return "movies/movieinput.html";
     }
 
+
+    // method allows to add new movie into DB
     @PostMapping
     @RequestMapping("editer")
     public String save(@ModelAttribute MovieCommand movieCommand){
@@ -36,10 +38,18 @@ public class MovieController {
         return "redirect:/movies/" + savedCommand.getId() + "/show";
     }
 
+// Spring is smart and knows when movie should be updated instead of adding new by Id
+
     @GetMapping("{id}/edit")
     public String updateMovie(@PathVariable Long id, Model model){
         model.addAttribute("movie",movieService.findCommandById(id));
         return "movies/movieinput.html";
+    }
+
+    @GetMapping("{id}/delete")
+    public String deleteMovie(@PathVariable Long id){
+        movieService.deleteById(id);
+        return "redirect:/";
     }
 
 }

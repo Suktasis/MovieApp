@@ -10,19 +10,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @Slf4j
-@RequestMapping("/")
-public class IndexController {
-    private MovieService movieService;
+@RequestMapping("/human")
+public class PersonController {
+    MovieService movieService;
 
-    public IndexController(MovieService movieService) {
-        this.movieService = movieService;
+    public PersonController(MovieService personService) {
+        this.movieService = personService;
     }
 
-    @GetMapping
-    public String indexPage(Model model){
-        log.debug("Getting index page");
-        model.addAttribute("movies",movieService.getMovies());
-        return "index";
+    @GetMapping("/movie/{movieId}/actors")
+    public String listActors(@PathVariable Long id, Model model){
+        model.addAttribute("people", movieService.findCommandById(id));
+        return "actors/list";
     }
-
 }

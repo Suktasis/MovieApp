@@ -31,7 +31,6 @@ public class MovieCommandToMovieTest {
     @Before
     public void setUp(){
         movieCommandToMovie = new MovieCommandToMovie(new CountryCommandToCountry(), new HumanCommandToHuman());
-
     }
 
     @Test
@@ -80,7 +79,7 @@ public class MovieCommandToMovieTest {
         assertEquals(movie.getLength(),LENGTH);
         assertEquals(movie.getRelease(),RELEASE);
         assertEquals(movie.getUrl(),URL);
-        assertEquals(movie.getHumans().size(), 2);
+        assertEquals(movie.getPeople().size(), 2);
 
     }
 

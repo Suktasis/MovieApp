@@ -83,7 +83,7 @@
                                 <ul>
                                     <li th:remove="all">Joe Doe</li>
                                     <li th:remove="all">Bob Doe</li>
-                                    <li th:each="human : ${movie.humans}" th:text="${human.getName()}">Bob Saget</li>
+                                    <li th:each="person : ${movie.people}" th:text="${person.getName()}">Bob Saget</li>
                                 </ul>
                             </div>
                         </div>
@@ -113,9 +113,11 @@
                         </div>
                     </div>
                 </div>
+                <a href="/" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Go Back</a>
             </div>
         </div>
     </div>
 </div>
+
 </body>
 </html>

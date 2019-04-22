@@ -1,7 +1,6 @@
 package com.kristupas.MovieApp.controllers;
 
 import com.kristupas.MovieApp.models.Movie;
-import com.kristupas.MovieApp.repositories.MovieRepository;
 import com.kristupas.MovieApp.services.MovieService;
 import org.junit.Before;
 import org.junit.Test;
@@ -13,12 +12,9 @@ import org.springframework.ui.Model;
 import java.util.HashSet;
 import java.util.Set;
 
-import static org.junit.Assert.*;
-import static org.mockito.ArgumentMatchers.anySet;
+import static org.junit.Assert.assertEquals;
 import static org.mockito.ArgumentMatchers.eq;
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 public class IndexControllerTest {
 
@@ -53,7 +49,5 @@ public class IndexControllerTest {
         verify(movieService,times(1)).getMovies();
         Set<Movie> movieSet2 = argumentCaptor.getValue();
         assertEquals(2,movieSet2.size());
-
-
     }
 }

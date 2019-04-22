@@ -1,13 +1,13 @@
 package com.kristupas.MovieApp.converters;
 
 import com.kristupas.MovieApp.commands.HumanCommand;
-import com.kristupas.MovieApp.models.Human;
+import com.kristupas.MovieApp.models.Person;
 import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
 
-public class HumanCommandToHumanTest {
+public class HumanCommandToPersonTest {
 
     public static final Long id = 1L;
     public static final String name = "Joseph";
@@ -35,9 +35,9 @@ public class HumanCommandToHumanTest {
         humanCommand.setId(id);
         humanCommand.setName(name);
 
-        Human human = converter.convert(humanCommand);
+        Person person = converter.convert(humanCommand);
 
-        assertEquals(id, human.getId());
-        assertEquals(name, human.getName());
+        assertEquals(id, person.getId());
+        assertEquals(name, person.getName());
     }
 }

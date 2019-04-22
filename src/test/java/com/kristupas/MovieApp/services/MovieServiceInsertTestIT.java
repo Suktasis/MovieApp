@@ -18,7 +18,7 @@ import static org.junit.Assert.*;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class MovieServiceInsertTest {
+public class MovieServiceInsertTestIT {
 
     public final static String URL = "com.example";
 
@@ -46,7 +46,7 @@ public class MovieServiceInsertTest {
 
         assertEquals(URL,savedMovieCommand.getUrl());
         assertEquals(movie.getId(),savedMovieCommand.getId());
-        assertEquals(movie.getHumans().size(),savedMovieCommand.getHumans().size());
+        assertEquals(movie.getPeople().size(),savedMovieCommand.getHumans().size());
         assertEquals(movie.getCountries().size(),savedMovieCommand.getCountries().size());
     }
 }

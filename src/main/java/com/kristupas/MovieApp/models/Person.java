@@ -11,7 +11,7 @@ import java.util.Set;
 
 
 @Entity
-public class Human {
+public class Person {
 
 
     @Id

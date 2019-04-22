@@ -13,11 +13,6 @@ public class Description {
     @Lob
     private String synopsis;
 
-
-
     private String slogan;
-
-    @OneToOne
-    private Movie movie;
 
 }

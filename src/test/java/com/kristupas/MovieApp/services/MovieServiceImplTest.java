@@ -1,5 +1,6 @@
 package com.kristupas.MovieApp.services;
 
+import com.kristupas.MovieApp.commands.MovieCommand;
 import com.kristupas.MovieApp.controllers.IndexController;
 import com.kristupas.MovieApp.converters.*;
 import com.kristupas.MovieApp.models.Movie;
@@ -40,7 +41,7 @@ public class MovieServiceImplTest {
         indexController = new IndexController(movieService);
     }
 
-    @Test public void getMovieById(){
+    @Test public void getMovieByIdTest(){
         Movie movie = new Movie();
         movie.setId(1L);
 
@@ -58,7 +59,7 @@ public class MovieServiceImplTest {
 
 
     @Test
-    public void getMovies() {
+    public void getMoviesTest() {
         Movie movie = new Movie();
         HashSet movieSetData = new HashSet();
         movieSetData.add(movie);
@@ -68,5 +69,16 @@ public class MovieServiceImplTest {
         Set<Movie> movies = movieService.getMovies();
         verify(movieRepository,times(1)).findAll();
     }
+
+
+    @Test
+    public void deleteByIdTest(){
+        Long id = 1L;
+        movieService.deleteById(id);
+
+
+        verify(movieRepository, times(1)).deleteById(anyLong());
+    }
+
 
 }

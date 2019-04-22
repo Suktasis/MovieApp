@@ -1,6 +1,10 @@
 package com.kristupas.MovieApp.services;
 
 
+/**
+ * Interface provides methods for working with Movie Collection
+ * Such as retrieving values saving and deleting**/
+
 import com.kristupas.MovieApp.commands.MovieCommand;
 import com.kristupas.MovieApp.models.Movie;
 
@@ -15,4 +19,6 @@ public interface MovieService  {
     MovieCommand saveMovieCommand(MovieCommand command);
 
     MovieCommand findCommandById(Long id);
+
+    void deleteById(Long id);
 }

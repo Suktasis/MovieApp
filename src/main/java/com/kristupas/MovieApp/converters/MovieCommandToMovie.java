@@ -40,7 +40,7 @@ public class MovieCommandToMovie implements Converter<MovieCommand, Movie> {
         movie.setAge(movieCommand.getAge());
         if (movieCommand.getHumans() != null && movieCommand.getHumans().size() > 0){
             movieCommand.getHumans()
-                    .forEach((HumanCommand human) -> movie.getHumans().add(humanCommandToHuman.convert(human)));
+                    .forEach((HumanCommand human) -> movie.getPeople().add(humanCommandToHuman.convert(human)));
         }
 
         if (movieCommand.getCountries() != null && movieCommand.getCountries().size() > 0){

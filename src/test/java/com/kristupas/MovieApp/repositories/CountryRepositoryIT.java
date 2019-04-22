@@ -29,4 +29,6 @@ public class CountryRepositoryIT {
         Optional<Country> country = countryRepository.findByName("USA");
         assertEquals("USA",country.get().getName());
     }
+
+
 }

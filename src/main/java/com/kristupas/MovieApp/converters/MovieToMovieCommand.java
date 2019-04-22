@@ -2,7 +2,7 @@ package com.kristupas.MovieApp.converters;
 
 import com.kristupas.MovieApp.commands.MovieCommand;
 import com.kristupas.MovieApp.models.Country;
-import com.kristupas.MovieApp.models.Human;
+import com.kristupas.MovieApp.models.Person;
 import com.kristupas.MovieApp.models.Movie;
 import lombok.Synchronized;
 import org.springframework.core.convert.converter.Converter;
@@ -40,9 +40,9 @@ public class MovieToMovieCommand implements Converter<Movie, MovieCommand> {
         movieCommand.setDescription(movie.getDescription());
         movieCommand.setAge(movie.getAge());
 
-        if (movie.getHumans() != null && movie.getHumans().size() > 0){
-            movie.getHumans()
-                    .forEach((Human human) -> movieCommand.getHumans().add(humanToHumanCommand.convert(human)));
+        if (movie.getPeople() != null && movie.getPeople().size() > 0){
+            movie.getPeople()
+                    .forEach((Person person) -> movieCommand.getHumans().add(humanToHumanCommand.convert(person)));
         }
 
         if (movie.getCountries() != null && movie.getCountries().size() > 0){

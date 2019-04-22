@@ -8,6 +8,10 @@ import org.springframework.stereotype.Component;
 
 import java.util.*;
 
+/**H2 does not persist data by default, so all entities are gone ones program is finished
+  BootsTrap Class creates necessary objects each time program runs
+  Spring automatically manages class as bean via @Component annotation  **/
+
 @Component
 public class MovieBootstrap implements ApplicationListener<ContextRefreshedEvent> {
 
@@ -31,7 +35,6 @@ public class MovieBootstrap implements ApplicationListener<ContextRefreshedEvent
     private List<Movie> getMovies(){
 
 
-//        Byte[] mas = new Byte[3];
         List<Movie> movies = new ArrayList<>();
 
 
@@ -45,15 +48,15 @@ public class MovieBootstrap implements ApplicationListener<ContextRefreshedEvent
         Country country2 = country2Optional.get();
 
 
-        Human actor1 = new Human();
+        Person actor1 = new Person();
         actor1.setName("Joseph");
         actor1.setDateOfBirth(new Date());
 
-        Human actor2 = new Human();
+        Person actor2 = new Person();
         actor2.setName("Alfred");
         actor2.setDateOfBirth(new Date());
 
-        Human actor3 = new Human();
+        Person actor3 = new Person();
         actor3.setName("Kelly");
         actor3.setDateOfBirth(new Date());
 

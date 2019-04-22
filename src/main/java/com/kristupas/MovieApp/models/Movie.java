@@ -38,7 +38,7 @@ public class Movie {
     @JoinTable(name = "movie_actor",
             joinColumns = @JoinColumn(name = "movie_id"),
             inverseJoinColumns = @JoinColumn(name = "actor_id"))
-    private Set<Human> humans = new HashSet<>();
+    private Set<Person> people = new HashSet<>();
 
     @ManyToMany()
     @JoinTable(name = "movie_country",
@@ -54,15 +54,11 @@ public class Movie {
     private Byte[] preview;
 
 
-    public void setDescription(Description description) {
-        this.description = description;
-        description.setMovie(this);
-    }
     public void addCountry(Country country){
         countries.add(country);
     }
 
-    public void addHuman(Human human){
-        humans.add(human);
+    public void addHuman(Person person){
+        people.add(person);
     }
 }
